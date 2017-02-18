@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "158875401991",
+    "firebase_url": "https://codesprint-16b16.firebaseio.com",
+    "project_id": "codesprint-16b16",
+    "storage_bucket": "codesprint-16b16.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158875401991:android:819450ed91bb1917",
+        "android_client_info": {
+          "package_name": "com.example.tazeen.codesprint.events"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158875401991-8dqgplc1btsm9av3e8d3hloi6ar8huq0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcelVNHTUwOIAfPhADtzQ2Bwv_tV3LxWM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158875401991:android:6dabea176a40db07",
+        "android_client_info": {
+          "package_name": "events.com.example.tazeen.codesprint"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158875401991-8dqgplc1btsm9av3e8d3hloi6ar8huq0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcelVNHTUwOIAfPhADtzQ2Bwv_tV3LxWM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
