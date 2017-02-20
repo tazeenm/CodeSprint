@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl">
+
         <activity android:name="events.example.tazeen.codesprint.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,12 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="events.example.tazeen.codesprint.Register"
-            android:label="Register" />
-        <activity
-            android:name="events.example.tazeen.codesprint.Home"
-            android:label="Home" />
         <activity
             android:name="events.example.tazeen.codesprint.Voise"
             android:label="Voise" />

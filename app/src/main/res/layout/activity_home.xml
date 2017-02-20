@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_home"
     android:layout_width="match_parent"
@@ -8,43 +9,51 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="events.example.tazeen.codesprint.Home">
+    tools:context="events.example.tazeen.codesprint.MainActivity">
 
-    <Button
-        android:id="@+id/voise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="55dp"
-        android:text="@string/voise" />
-
-    <Button
-        android:id="@+id/edc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/voise"
-        android:layout_alignStart="@+id/voise"
-        android:layout_below="@+id/voise"
-        android:layout_marginTop="18dp"
-        android:text="@string/edc" />
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar"
+        android:background="@color/com_facebook_button_background_color_selected" />
 
     <Button
         android:id="@+id/sports"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/sports"
+        android:layout_below="@+id/toolbar"
         android:layout_alignLeft="@+id/edc"
         android:layout_alignStart="@+id/edc"
-        android:layout_below="@+id/edc"
-        android:layout_marginTop="18dp"
-        android:text="@string/sports" />
+        android:layout_marginTop="162dp" />
+
+    <Button
+        android:id="@+id/voise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/voise"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
+
+    <Button
+        android:id="@+id/edc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edc"
+        android:layout_below="@+id/voise"
+        android:layout_alignLeft="@+id/voise"
+        android:layout_alignStart="@+id/voise"
+        android:layout_marginTop="27dp" />
 
     <Button
         android:id="@+id/c_activities"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:text="@string/c_activities"
         android:layout_below="@+id/sports"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
-        android:text="@string/c_activities" />
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

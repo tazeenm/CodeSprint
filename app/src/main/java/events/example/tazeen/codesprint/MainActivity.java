@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -23,18 +24,15 @@ import events.com.example.tazeen.codesprint.R;
 
 public class MainActivity extends AppCompatActivity {
 
-   /* private EditText login_email;
-    private EditText login_password;
-    private Button loginBtn;
-    private TextView registerView;*/
+    private Button voise;
+    private Button edc;
+    private Button sports;
+    private Button cultural_activities;
 
     public static final String ANONYMOUS = "anonymous";
     public static final int RC_SIGN_IN = 1;
     private static final String TAG = "MainActivity";
-    private ProgressBar mProgressBar;
-    private ImageButton mPhotoPickerButton;
-    private EditText mMessageEditText;
-    private Button mSendButton;
+    //private ProgressBar mProgressBar;
 
     private String mUsername;
 
@@ -48,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
         mUsername = ANONYMOUS;
 
@@ -57,6 +55,46 @@ public class MainActivity extends AppCompatActivity {
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
+
+        voise = (Button) findViewById(R.id.voise);
+        edc = (Button) findViewById(R.id.edc);
+        sports = (Button) findViewById(R.id.sports);
+        cultural_activities = (Button) findViewById(R.id.c_activities);
+        //mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+        //mProgressBar.setVisibility(ProgressBar.INVISIBLE);
+
+        voise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i2 = new Intent(MainActivity.this, Voise.class);
+                startActivity(i2);
+            }
+        });
+
+        edc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i3 = new Intent(MainActivity.this, Edc.class);
+                startActivity(i3);
+            }
+        });
+
+        sports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i4 = new Intent(MainActivity.this, Sports.class);
+                startActivity(i4);
+            }
+        });
+
+        cultural_activities.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i5 = new Intent(MainActivity.this, CulturalActivities.class);
+                startActivity(i5);
+            }
+        });
 
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
 
@@ -77,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                                             AuthUI.GOOGLE_PROVIDER)
                                     .build(),
                             RC_SIGN_IN);
-                }
+                    }
             }
         };
     }
@@ -137,25 +175,3 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-
-
-    /*@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        *//*login_email = (EditText) findViewById(R.id.email);
-        login_password = (EditText) findViewById(R.id.password);
-        loginBtn = (Button) findViewById(R.id.LoginBtn);
-        registerView = (TextView) findViewById(R.id.register_textView);
-
-        registerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i1 = new Intent(MainActivity.this, Register.class);
-                startActivity(i1);
-            }
-        });*//*
-    }
-}
-*/
