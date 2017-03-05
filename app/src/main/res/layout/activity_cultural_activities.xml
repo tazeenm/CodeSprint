@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_cultural_activities"
     android:layout_width="match_parent"
@@ -9,5 +10,27 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="events.example.tazeen.codesprint.CulturalActivities">
+
+    <!--<android.support.v4.view.ViewPager
+        android:id="@+id/viewPager3"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>-->
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/com_facebook_button_background_color_selected"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/toolbar4"
+        app:title="Cultural Activities" />
+
+    <AdapterViewFlipper
+        android:id="@+id/simpleAdapterViewFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </AdapterViewFlipper>
 
 </RelativeLayout>

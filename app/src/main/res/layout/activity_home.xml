@@ -16,44 +16,48 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar"
-        android:background="@color/com_facebook_button_background_color_selected" />
-
-    <Button
-        android:id="@+id/sports"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/sports"
-        android:layout_below="@+id/toolbar"
-        android:layout_alignLeft="@+id/edc"
-        android:layout_alignStart="@+id/edc"
-        android:layout_marginTop="162dp" />
+        android:background="@color/com_facebook_button_background_color_selected"
+        app:title="Home" />
 
     <Button
         android:id="@+id/voise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/voise"
-        android:layout_below="@+id/toolbar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/edc" />
+
+    <Button
+        android:id="@+id/sports"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sports"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignLeft="@+id/edc"
+        android:layout_alignStart="@+id/edc" />
 
     <Button
         android:id="@+id/edc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/edc"
-        android:layout_below="@+id/voise"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/c_activities"
         android:layout_alignLeft="@+id/voise"
-        android:layout_alignStart="@+id/voise"
-        android:layout_marginTop="27dp" />
+        android:layout_alignStart="@+id/voise" />
 
     <Button
         android:id="@+id/c_activities"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="15dp"
         android:text="@string/c_activities"
         android:layout_below="@+id/sports"
         android:layout_centerHorizontal="true" />
+    <!--android:layout_below="@+id/edc"
+    android:layout_alignLeft="@+id/edc"
+    android:layout_alignStart="@+id/edc" />-->
 
 </RelativeLayout>

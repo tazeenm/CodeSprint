@@ -103,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     onSignedInInitialize(user.getDisplayName());
-                    //Toast.makeText(MainActivity.this, "You're now Signed in! Welcome to FriendlyChat!",Toast.LENGTH_SHORT).show();
                 } else {
                     onSignedOutCleanUp();
                     startActivityForResult(
@@ -147,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Signed In!", Toast.LENGTH_SHORT).show();
             } else if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(this, "Sign in cancelled!", Toast.LENGTH_LONG).show();
+                finish();
             }
         }
     }
@@ -155,7 +155,6 @@ public class MainActivity extends AppCompatActivity {
     public void onPause() {
         super.onPause();
         mFirebaseAuth.removeAuthStateListener(mAuthStateListener);
-
     }
 
     @Override
@@ -166,12 +165,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void onSignedInInitialize(String username) {
         mUsername = username;
-
     }
 
     private void onSignedOutCleanUp() {
         mUsername = ANONYMOUS;
-
     }
 
 }
