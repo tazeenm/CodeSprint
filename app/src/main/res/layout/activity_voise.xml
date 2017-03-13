@@ -11,11 +11,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="events.example.tazeen.codesprint.Voise">
 
-    <!--<android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"/>-->
-
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="56dp"
@@ -30,7 +25,14 @@
     <AdapterViewFlipper
         android:id="@+id/simpleAdapterViewFlipper"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </AdapterViewFlipper>
+        android:layout_height="200dp"></AdapterViewFlipper>
+
+    <ListView
+        android:id="@+id/voise_list"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/simpleAdapterViewFlipper" />
 
 </RelativeLayout>
