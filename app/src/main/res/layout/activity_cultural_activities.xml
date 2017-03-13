@@ -16,6 +16,12 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"/>-->
 
+    <ListView
+        android:id="@+id/cultural_list"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="200dp" />
+
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="56dp"
@@ -30,7 +36,6 @@
     <AdapterViewFlipper
         android:id="@+id/simpleAdapterViewFlipper"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </AdapterViewFlipper>
+        android:layout_height="200dp"></AdapterViewFlipper>
 
 </RelativeLayout>
