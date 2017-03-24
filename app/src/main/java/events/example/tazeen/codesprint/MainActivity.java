@@ -130,6 +130,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_sign_out:
                 AuthUI.getInstance().signOut(this);
                 return true;
+
+            case R.id.action_settings:
+                Intent adminIntent = new Intent(MainActivity.this, AdminLogin.class);
+                startActivity(adminIntent);
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
