@@ -36,7 +36,8 @@
         <activity
             android:name="events.example.tazeen.codesprint.CulturalActivities"
             android:label="Cultural Activities" />
-        <activity android:name="events.example.tazeen.codesprint.AdminLogin"></activity>
+        <activity android:name="events.example.tazeen.codesprint.AdminLogin" />
+        <activity android:name="events.example.tazeen.codesprint.EventForm"></activity>
     </application>
 
 </manifest>
