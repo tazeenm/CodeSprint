@@ -3,6 +3,7 @@ package events.example.tazeen.codesprint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.AdapterViewFlipper;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -12,6 +13,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -45,33 +47,10 @@ public class Sports extends AppCompatActivity {
         simpleAdapterViewFlipper.setAutoStart(true);
 
         dref = FirebaseDatabase.getInstance().getReference().child("sports");
-        dref.addChildEventListener(new ChildEventListener() {
-
+        dref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                String item = dataSnapshot.getValue(String.class);
-                String key = dataSnapshot.getKey();
-                String res = key + ": " + item;
-                sportsItems.add(item);
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-                String item = dataSnapshot.getValue(String.class);
-                sportsItems.remove(item);
-                adapter.notifyDataSetChanged();
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.d("Something:",dataSnapshot.toString());
             }
 
             @Override
@@ -79,5 +58,41 @@ public class Sports extends AppCompatActivity {
 
             }
         });
+                dref.addChildEventListener(new ChildEventListener() {
+
+                    @Override
+                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+                        for(DataSnapshot item:dataSnapshot.getChildren()) {
+                            Log.d("Snapshot:", item.getValue().toString());
+                            sportsItems.add(item.getValue().toString());
+                        }
+
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(DataSnapshot dataSnapshot) {
+                        String item = dataSnapshot.getValue(String.class);
+                        sportsItems.remove(item);
+                        adapter.notifyDataSetChanged();
+
+                    }
+
+                    @Override
+                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterViewFlipper;
 import android.widget.ArrayAdapter;
@@ -53,11 +54,10 @@ public class Voise extends AppCompatActivity {
         dref.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-               // dref = FirebaseDatabase.getInstance().getReference().child("voise");
-                String item = dataSnapshot.getValue(String.class);
-                String key = dataSnapshot.getKey();
-                String res = key + ": " + item;
-                voiseItems.add(item);
+                for(DataSnapshot item:dataSnapshot.getChildren()) {
+                    Log.d("Snapshot:", item.getValue().toString());
+                    voiseItems.add(item.getValue().toString());
+                }
                 adapter.notifyDataSetChanged();
             }
 

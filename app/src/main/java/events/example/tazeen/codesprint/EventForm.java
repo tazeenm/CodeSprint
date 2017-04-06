@@ -22,15 +22,15 @@ import events.com.example.tazeen.codesprint.R;
 
 public class EventForm extends AppCompatActivity {
 
-    private CheckBox sportsCheckBox;
-    private CheckBox culturalCheckBox;
-    private CheckBox edcCheckBox;
-    private CheckBox voiseCheckBox;
+    public CheckBox sportsCheckBox;
+    public CheckBox culturalCheckBox;
+    public CheckBox edcCheckBox;
+    public CheckBox voiseCheckBox;
 
     private TextView categoryTextView;
     public EditText eventEditText;
     private Button submitBtn;
-    int id;
+    private String event;
 
     private static String TAG = "EventForm";
 
@@ -41,7 +41,6 @@ public class EventForm extends AppCompatActivity {
         setContentView(R.layout.activity_event_form);
 
         sportsCheckBox = (CheckBox) findViewById(R.id.sports_checkBox);
-        Log.d("id",""+R.id.sports_checkBox);
         culturalCheckBox = (CheckBox) findViewById(R.id.cultural_checkBox);
         edcCheckBox = (CheckBox) findViewById(R.id.edc_checkBox);
         voiseCheckBox = (CheckBox) findViewById(R.id.voise_checkBox);
@@ -51,7 +50,6 @@ public class EventForm extends AppCompatActivity {
         submitBtn = (Button) findViewById(R.id.event_submit_btn);
 
         fbdatabase = FirebaseDatabase.getInstance();
-       // DatabaseReference myRef = fbdatabase.getReference("SPORTS/");
 
         sportsCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +57,7 @@ public class EventForm extends AppCompatActivity {
                 culturalCheckBox.setEnabled(false);
                 edcCheckBox.setEnabled(false);
                 voiseCheckBox.setEnabled(false);
+
             }
         });
 
@@ -96,7 +95,10 @@ public class EventForm extends AppCompatActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+               // event = eventEditText.getText().toString();
+                DatabaseReference myRef = fbdatabase.getReference("sports");
+                myRef=myRef.push();
+                myRef.child("sports").setValue(eventEditText.getText().toString());
                 Toast.makeText(EventForm.this, "Event Added!", Toast.LENGTH_SHORT).show();
                 Intent home = new Intent(EventForm.this, MainActivity.class);
                 startActivity(home);

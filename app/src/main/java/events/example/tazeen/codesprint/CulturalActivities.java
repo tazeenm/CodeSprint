@@ -3,6 +3,7 @@ package events.example.tazeen.codesprint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.AdapterViewFlipper;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -48,11 +49,12 @@ public class CulturalActivities extends AppCompatActivity {
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                String item = dataSnapshot.getValue(String.class);
-                String key = dataSnapshot.getKey();
-                String res = key + ": " + item;
-                culturalItems.add(item);
-                adapter.notifyDataSetChanged();
+                for (DataSnapshot item : dataSnapshot.getChildren()) {
+                    Log.d("Snapshot:", item.getValue().toString());
+                    culturalItems.add(item.getValue().toString());
+                }
+
+                  adapter.notifyDataSetChanged();
             }
 
             @Override
