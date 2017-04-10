@@ -51,7 +51,7 @@ public class EventForm extends AppCompatActivity {
 
         fbdatabase = FirebaseDatabase.getInstance();
 
-        sportsCheckBox.setOnClickListener(new View.OnClickListener() {
+        /*sportsCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 culturalCheckBox.setEnabled(false);
@@ -89,16 +89,29 @@ public class EventForm extends AppCompatActivity {
                 edcCheckBox.setEnabled(false);
                 sportsCheckBox.setEnabled(false);
             }
-        });
+        });*/
 
 
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // event = eventEditText.getText().toString();
-                DatabaseReference myRef = fbdatabase.getReference("sports");
-                myRef=myRef.push();
-                myRef.child("sports").setValue(eventEditText.getText().toString());
+                if(sportsCheckBox.isChecked()) {
+                    DatabaseReference myRef = fbdatabase.getReference("sports");
+                    myRef = myRef.push();
+                    myRef.child("sports").setValue(eventEditText.getText().toString());
+                } else if(culturalCheckBox.isChecked()) {
+                    DatabaseReference myRef = fbdatabase.getReference("culturalActivities");
+                    myRef = myRef.push();
+                    myRef.child("culturalActivities").setValue(eventEditText.getText().toString());
+                } else if(edcCheckBox.isChecked()) {
+                    DatabaseReference myRef = fbdatabase.getReference("edc");
+                    myRef = myRef.push();
+                    myRef.child("edc").setValue(eventEditText.getText().toString());
+                } else if(voiseCheckBox.isChecked()) {
+                    DatabaseReference myRef = fbdatabase.getReference("voise");
+                    myRef = myRef.push();
+                    myRef.child("voise").setValue(eventEditText.getText().toString());
+                }
                 Toast.makeText(EventForm.this, "Event Added!", Toast.LENGTH_SHORT).show();
                 Intent home = new Intent(EventForm.this, MainActivity.class);
                 startActivity(home);

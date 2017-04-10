@@ -28,7 +28,7 @@ public class Sports extends AppCompatActivity {
     ListView sportsList;
     DatabaseReference dref;
     ArrayList<String> sportsItems = new ArrayList<>();
-    ArrayAdapter<String> adapter;
+    ArrayAdapter<String> adapter1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +37,8 @@ public class Sports extends AppCompatActivity {
 
         ToolBar1 = (Toolbar) findViewById(R.id.toolbar3);
         sportsList = (ListView) findViewById(R.id.sports_list);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, sportsItems);
-        sportsList.setAdapter(adapter);
+        adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, sportsItems);
+        sportsList.setAdapter(adapter1);
 
         simpleAdapterViewFlipper = (AdapterViewFlipper) findViewById(R.id.simpleAdapterViewFlipper);
         CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), /*fruitNames,*/ slideImages);
@@ -68,7 +68,7 @@ public class Sports extends AppCompatActivity {
                             sportsItems.add(item.getValue().toString());
                         }
 
-                        adapter.notifyDataSetChanged();
+                        adapter1.notifyDataSetChanged();
                     }
 
                     @Override
@@ -80,7 +80,7 @@ public class Sports extends AppCompatActivity {
                     public void onChildRemoved(DataSnapshot dataSnapshot) {
                         String item = dataSnapshot.getValue(String.class);
                         sportsItems.remove(item);
-                        adapter.notifyDataSetChanged();
+                        adapter1.notifyDataSetChanged();
 
                     }
 

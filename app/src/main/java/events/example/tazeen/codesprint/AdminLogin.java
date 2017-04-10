@@ -37,12 +37,12 @@ public class AdminLogin extends AppCompatActivity {
                 if(email.equals("Admin") && password.equals("root")) {
                     Intent dbForm = new Intent(AdminLogin.this, EventForm.class);
                     startActivity(dbForm);
-                    Toast.makeText(getApplicationContext(),"signed in",Toast.LENGTH_SHORT).show();
-                    Log.d("Cancelled","Signin");
+                    Toast.makeText(getApplicationContext(),"Signed in",Toast.LENGTH_SHORT).show();
+                    Log.d("Success","Signin");
                 } else {
                     Intent dbForm1 = new Intent(AdminLogin.this,AdminLogin.class);
                     startActivity(dbForm1);
-                    Toast.makeText(getApplicationContext()," not signed in",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Cannot Sign in",Toast.LENGTH_SHORT).show();
                     Log.d("Cancelled","Signin");
                 }
             }

@@ -29,7 +29,7 @@ public class Voise extends AppCompatActivity {
     ListView voiseList;
     DatabaseReference dref;
     ArrayList<String> voiseItems = new ArrayList<>();
-    ArrayAdapter<String> adapter;
+    ArrayAdapter<String> adapter4;
 
     private AdapterViewFlipper simpleAdapterViewFlipper;
     int[] slideImages = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};     // array of images
@@ -41,8 +41,8 @@ public class Voise extends AppCompatActivity {
 
         mToolBar = (Toolbar) findViewById(R.id.toolbar2);
         voiseList = (ListView) findViewById(R.id.voise_list);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, voiseItems);
-        voiseList.setAdapter(adapter);
+        adapter4 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, voiseItems);
+        voiseList.setAdapter(adapter4);
 
         simpleAdapterViewFlipper = (AdapterViewFlipper) findViewById(R.id.simpleAdapterViewFlipper);
         CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), slideImages);
@@ -58,7 +58,7 @@ public class Voise extends AppCompatActivity {
                     Log.d("Snapshot:", item.getValue().toString());
                     voiseItems.add(item.getValue().toString());
                 }
-                adapter.notifyDataSetChanged();
+                adapter4.notifyDataSetChanged();
             }
 
             @Override
@@ -70,7 +70,7 @@ public class Voise extends AppCompatActivity {
             public void onChildRemoved(DataSnapshot dataSnapshot) {
                 String item = dataSnapshot.getValue(String.class);
                 voiseItems.remove(item);
-                adapter.notifyDataSetChanged();
+                adapter4.notifyDataSetChanged();
 
             }
 

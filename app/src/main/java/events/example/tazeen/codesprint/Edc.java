@@ -27,7 +27,7 @@ public class Edc extends AppCompatActivity {
 
     DatabaseReference dref;
     ArrayList<String> edcItems = new ArrayList<>();
-    ArrayAdapter<String> adapter;
+    ArrayAdapter<String> adapter3;
     ListView edcList;
 
     @Override
@@ -37,8 +37,8 @@ public class Edc extends AppCompatActivity {
         ToolBar1 = (Toolbar) findViewById(R.id.toolbar5);
 
         edcList = (ListView) findViewById(R.id.edc_list);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, edcItems);
-        edcList.setAdapter(adapter);
+        adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, edcItems);
+        edcList.setAdapter(adapter3);
 
         simpleAdapterViewFlipper = (AdapterViewFlipper) findViewById(R.id.simpleAdapterViewFlipper);
         CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), slideImages);
@@ -55,7 +55,7 @@ public class Edc extends AppCompatActivity {
                     Log.d("Snapshot:", item.getValue().toString());
                     edcItems.add(item.getValue().toString());
                 }
-                adapter.notifyDataSetChanged();
+                adapter3.notifyDataSetChanged();
             }
 
             @Override
@@ -67,7 +67,7 @@ public class Edc extends AppCompatActivity {
             public void onChildRemoved(DataSnapshot dataSnapshot) {
                 String item = dataSnapshot.getValue(String.class);
                 edcItems.remove(item);
-                adapter.notifyDataSetChanged();
+                adapter3.notifyDataSetChanged();
 
             }
 

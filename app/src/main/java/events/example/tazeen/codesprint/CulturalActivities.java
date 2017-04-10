@@ -23,7 +23,7 @@ public class CulturalActivities extends AppCompatActivity {
 
     DatabaseReference dref;
     ArrayList<String> culturalItems = new ArrayList<>();
-    ArrayAdapter<String> adapter;
+    ArrayAdapter<String> adapter2;
     ListView culturalList;
 
     private AdapterViewFlipper simpleAdapterViewFlipper;
@@ -35,8 +35,8 @@ public class CulturalActivities extends AppCompatActivity {
         setContentView(R.layout.activity_cultural_activities);
         ToolBar3 = (Toolbar) findViewById(R.id.toolbar4);
         culturalList = (ListView) findViewById(R.id.cultural_list);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, culturalItems);
-        culturalList.setAdapter(adapter);
+        adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, culturalItems);
+        culturalList.setAdapter(adapter2);
 
         simpleAdapterViewFlipper = (AdapterViewFlipper) findViewById(R.id.simpleAdapterViewFlipper);
         CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(),slideImages);
@@ -53,8 +53,7 @@ public class CulturalActivities extends AppCompatActivity {
                     Log.d("Snapshot:", item.getValue().toString());
                     culturalItems.add(item.getValue().toString());
                 }
-
-                  adapter.notifyDataSetChanged();
+                adapter2.notifyDataSetChanged();
             }
 
             @Override
@@ -66,7 +65,7 @@ public class CulturalActivities extends AppCompatActivity {
             public void onChildRemoved(DataSnapshot dataSnapshot) {
                 String item = dataSnapshot.getValue(String.class);
                 culturalItems.remove(item);
-                adapter.notifyDataSetChanged();
+                adapter2.notifyDataSetChanged();
 
             }
 
