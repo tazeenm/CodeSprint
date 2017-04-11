@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.SignInButton;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,6 +38,7 @@ public class Sports extends AppCompatActivity {
     ArrayList<String> sportsItems = new ArrayList<>();
     ArrayAdapter<String> adapter1;
     private Button subscribeBtn;
+    private Button unsubscribeBtn;
     private static final String TAG = "MainActivity";
 
     @Override
@@ -56,6 +58,8 @@ public class Sports extends AppCompatActivity {
         simpleAdapterViewFlipper.setAutoStart(true);
 
         subscribeBtn = (Button) findViewById(R.id.subscribe_sports);
+        unsubscribeBtn = (Button) findViewById(R.id.unsubscribe_sports);
+
 
         /*if (getIntent().getExtras() != null) {
             for (String key : getIntent().getExtras().keySet()) {
@@ -73,6 +77,14 @@ public class Sports extends AppCompatActivity {
                 /*String msg = getString(R.string.msg_subscribed);
                 Log.d(TAG, msg);
                 Toast.makeText(Sports.this, msg, Toast.LENGTH_SHORT).show();*/
+            }
+        });
+
+        unsubscribeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("sports");
+                Log.d("Unsubscribe","Sports");
             }
         });
 

@@ -35,8 +35,22 @@
         android:id="@+id/subscribe_sports"
         android:layout_width="wrap_content"
         android:layout_height="40sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Subscribe" />
+        android:text="Subscribe"
+        android:layout_below="@+id/sports_list"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="66dp"
+        android:layout_marginStart="66dp" />
+
+    <Button
+        android:id="@+id/unsubscribe_sports"
+        android:layout_width="wrap_content"
+        android:layout_height="40sp"
+        android:layout_below="@+id/sports_list"
+        android:layout_marginLeft="43dp"
+        android:layout_marginStart="43dp"
+        android:layout_toEndOf="@+id/subscribe_sports"
+        android:layout_toRightOf="@+id/subscribe_sports"
+        android:text="Unsubscribe" />
 
 </RelativeLayout>

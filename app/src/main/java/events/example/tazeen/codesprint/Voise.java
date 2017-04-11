@@ -33,6 +33,7 @@ public class Voise extends AppCompatActivity {
     ArrayList<String> voiseItems = new ArrayList<>();
     ArrayAdapter<String> adapter4;
     private Button subscribeBtn3;
+    private Button unsubscribeBtn3;
 
     private AdapterViewFlipper simpleAdapterViewFlipper;
     int[] slideImages = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};     // array of images
@@ -54,6 +55,8 @@ public class Voise extends AppCompatActivity {
         simpleAdapterViewFlipper.setAutoStart(true);
 
         subscribeBtn3 = (Button) findViewById(R.id.subscribe_voise);
+        unsubscribeBtn3 = (Button) findViewById(R.id.unsubscribe_voise);
+
         subscribeBtn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,6 +64,15 @@ public class Voise extends AppCompatActivity {
                 Log.d("Subscribe", "Vo'ISE");
             }
         });
+
+        unsubscribeBtn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("voise");
+                Log.d("Unsubscribe", "Vo'ISE");
+            }
+        });
+
         dref = FirebaseDatabase.getInstance().getReference().child("voise");
         dref.addChildEventListener(new ChildEventListener() {
             @Override

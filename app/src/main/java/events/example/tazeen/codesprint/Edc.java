@@ -33,6 +33,7 @@ public class Edc extends AppCompatActivity {
     ArrayAdapter<String> adapter3;
     ListView edcList;
     private Button subscribeBtn2;
+    private Button unsubscribeBtn2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class Edc extends AppCompatActivity {
         simpleAdapterViewFlipper.setAutoStart(true);
 
         subscribeBtn2 = (Button) findViewById(R.id.subscribe_edc);
+        unsubscribeBtn2 = (Button) findViewById(R.id.unsubscribe_edc);
 
         subscribeBtn2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +61,15 @@ public class Edc extends AppCompatActivity {
                 Log.d("Subscribe", "EDC");
             }
         });
+
+        unsubscribeBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("edc");
+                Log.d("Unsubscribe", "EDC");
+            }
+        });
+
         dref = FirebaseDatabase.getInstance().getReference().child("edc");
         dref.addChildEventListener(new ChildEventListener() {
 

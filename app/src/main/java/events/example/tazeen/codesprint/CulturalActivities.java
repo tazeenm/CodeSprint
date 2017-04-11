@@ -29,6 +29,7 @@ public class CulturalActivities extends AppCompatActivity {
     ArrayAdapter<String> adapter2;
     ListView culturalList;
     private Button subscribeBtn1;
+    private Button unsubscribeBtn1;
 
     private AdapterViewFlipper simpleAdapterViewFlipper;
     int[] slideImages = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};     // array of images
@@ -49,11 +50,21 @@ public class CulturalActivities extends AppCompatActivity {
         simpleAdapterViewFlipper.setAutoStart(true);
 
         subscribeBtn1 = (Button) findViewById(R.id.subscribe_cultural_activities);
+        unsubscribeBtn1 = (Button) findViewById(R.id.unsubscribe_cultural_activities);
+
         subscribeBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseMessaging.getInstance().subscribeToTopic("culturalActivities");
                 Log.d("Subscribe", "Cultural Activities");
+            }
+        });
+
+        unsubscribeBtn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("culturalActivities");
+                Log.d("Unsubscribe","Cultual Activities");
             }
         });
 
