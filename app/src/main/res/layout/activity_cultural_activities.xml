@@ -11,11 +11,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="events.example.tazeen.codesprint.CulturalActivities">
 
-    <ListView
-        android:id="@+id/cultural_list"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_marginTop="200dp" />
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -28,9 +23,24 @@
         android:id="@+id/toolbar4"
         app:title="Cultural Activities" />
 
+
     <AdapterViewFlipper
         android:id="@+id/simpleAdapterViewFlipper"
         android:layout_width="match_parent"
         android:layout_height="200dp"></AdapterViewFlipper>
+
+    <ListView
+        android:id="@+id/cultural_list"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="200dp" />
+
+    <Button
+        android:id="@+id/subscribe_cultural_activities"
+        android:layout_width="wrap_content"
+        android:layout_height="40sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Subscribe" />
 
 </RelativeLayout>

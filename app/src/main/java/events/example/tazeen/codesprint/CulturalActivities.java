@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.AdapterViewFlipper;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -13,6 +15,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 
@@ -25,6 +28,7 @@ public class CulturalActivities extends AppCompatActivity {
     ArrayList<String> culturalItems = new ArrayList<>();
     ArrayAdapter<String> adapter2;
     ListView culturalList;
+    private Button subscribeBtn1;
 
     private AdapterViewFlipper simpleAdapterViewFlipper;
     int[] slideImages = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};     // array of images
@@ -43,6 +47,15 @@ public class CulturalActivities extends AppCompatActivity {
         simpleAdapterViewFlipper.setAdapter(customAdapter);
         simpleAdapterViewFlipper.setFlipInterval(3000);
         simpleAdapterViewFlipper.setAutoStart(true);
+
+        subscribeBtn1 = (Button) findViewById(R.id.subscribe_cultural_activities);
+        subscribeBtn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseMessaging.getInstance().subscribeToTopic("culturalActivities");
+                Log.d("Subscribe", "Cultural Activities");
+            }
+        });
 
         dref = FirebaseDatabase.getInstance().getReference().child("culturalActivities");
         dref.addChildEventListener(new ChildEventListener() {

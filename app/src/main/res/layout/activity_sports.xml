@@ -28,7 +28,15 @@
     <ListView
         android:id="@+id/sports_list"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="300dp"
         android:layout_below="@+id/simpleAdapterViewFlipper" />
+
+    <Button
+        android:id="@+id/subscribe_sports"
+        android:layout_width="wrap_content"
+        android:layout_height="40sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Subscribe" />
 
 </RelativeLayout>

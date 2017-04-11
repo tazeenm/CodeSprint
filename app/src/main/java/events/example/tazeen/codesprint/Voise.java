@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterViewFlipper;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -15,6 +16,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +32,7 @@ public class Voise extends AppCompatActivity {
     DatabaseReference dref;
     ArrayList<String> voiseItems = new ArrayList<>();
     ArrayAdapter<String> adapter4;
+    private Button subscribeBtn3;
 
     private AdapterViewFlipper simpleAdapterViewFlipper;
     int[] slideImages = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};     // array of images
@@ -50,6 +53,14 @@ public class Voise extends AppCompatActivity {
         simpleAdapterViewFlipper.setFlipInterval(3000);
         simpleAdapterViewFlipper.setAutoStart(true);
 
+        subscribeBtn3 = (Button) findViewById(R.id.subscribe_voise);
+        subscribeBtn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseMessaging.getInstance().subscribeToTopic("voise");
+                Log.d("Subscribe", "Vo'ISE");
+            }
+        });
         dref = FirebaseDatabase.getInstance().getReference().child("voise");
         dref.addChildEventListener(new ChildEventListener() {
             @Override

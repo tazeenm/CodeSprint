@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.AdapterViewFlipper;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -14,10 +17,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 
 import events.com.example.tazeen.codesprint.R;
+
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class Sports extends AppCompatActivity {
 
@@ -29,6 +36,8 @@ public class Sports extends AppCompatActivity {
     DatabaseReference dref;
     ArrayList<String> sportsItems = new ArrayList<>();
     ArrayAdapter<String> adapter1;
+    private Button subscribeBtn;
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +54,27 @@ public class Sports extends AppCompatActivity {
         simpleAdapterViewFlipper.setAdapter(customAdapter);
         simpleAdapterViewFlipper.setFlipInterval(3000);
         simpleAdapterViewFlipper.setAutoStart(true);
+
+        subscribeBtn = (Button) findViewById(R.id.subscribe_sports);
+
+        /*if (getIntent().getExtras() != null) {
+            for (String key : getIntent().getExtras().keySet()) {
+                Object value = getIntent().getExtras().get(key);
+                Log.d(TAG, "Key: " + key + " Value: " + value);
+            }
+        }*/
+
+        subscribeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseMessaging.getInstance().subscribeToTopic("sports");
+                Log.d("Subscribe", "Sports");
+
+                /*String msg = getString(R.string.msg_subscribed);
+                Log.d(TAG, msg);
+                Toast.makeText(Sports.this, msg, Toast.LENGTH_SHORT).show();*/
+            }
+        });
 
         dref = FirebaseDatabase.getInstance().getReference().child("sports");
         dref.addListenerForSingleValueEvent(new ValueEventListener() {
