@@ -15,9 +15,9 @@ import events.com.example.tazeen.codesprint.R;
 public class AdminLogin extends AppCompatActivity {
 
     private Button signinBtn;
-    private EditText admin_email;
+    private EditText admin_username;
     private EditText admin_password;
-    private String email;
+    private String username;
     private String password;
 
     @Override
@@ -26,15 +26,15 @@ public class AdminLogin extends AppCompatActivity {
         setContentView(R.layout.activity_admin_login);
 
         signinBtn = (Button) findViewById(R.id.admin_signin_btn);
-        admin_email = (EditText) findViewById(R.id.admin_email);
+        admin_username = (EditText) findViewById(R.id.admin_username);
         admin_password = (EditText) findViewById(R.id.admin_password);
 
         signinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                email = admin_email.getText().toString();
+                username = admin_username.getText().toString();
                 password = admin_password.getText().toString();
-                if(email.equals("Admin") && password.equals("root")) {
+                if(username.equals("Admin") && password.equals("root")) {
                     Intent dbForm = new Intent(AdminLogin.this, EventForm.class);
                     startActivity(dbForm);
                     Toast.makeText(getApplicationContext(),"Signed in",Toast.LENGTH_SHORT).show();

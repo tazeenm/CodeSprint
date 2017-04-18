@@ -9,6 +9,7 @@ import android.widget.AdapterViewFlipper;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 import com.google.firebase.database.ChildEventListener;
@@ -59,6 +60,7 @@ public class Edc extends AppCompatActivity {
             public void onClick(View view) {
                 FirebaseMessaging.getInstance().subscribeToTopic("edc");
                 Log.d("Subscribe", "EDC");
+                Toast.makeText(Edc.this, "Subscribed to EDC", Toast.LENGTH_SHORT).show();
             }
         });
 

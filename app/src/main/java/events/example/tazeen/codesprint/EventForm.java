@@ -30,11 +30,26 @@ public class EventForm extends AppCompatActivity {
     private TextView categoryTextView;
     public EditText eventEditText;
     private Button submitBtn;
-    private String event;
+    //private String event;
 
     private static String TAG = "EventForm";
+    private static final String eventState = "EventText";
 
     FirebaseDatabase fbdatabase;
+
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString(eventState, eventEditText.getText().toString());
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        eventEditText.setText(savedInstanceState.getString(eventState));
+        super.onRestoreInstanceState(savedInstanceState);
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,47 +65,6 @@ public class EventForm extends AppCompatActivity {
         submitBtn = (Button) findViewById(R.id.event_submit_btn);
 
         fbdatabase = FirebaseDatabase.getInstance();
-
-        /*sportsCheckBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                culturalCheckBox.setEnabled(false);
-                edcCheckBox.setEnabled(false);
-                voiseCheckBox.setEnabled(false);
-
-            }
-        });
-
-        culturalCheckBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                sportsCheckBox.setEnabled(false);
-                edcCheckBox.setEnabled(false);
-                voiseCheckBox.setEnabled(false);
-            }
-        });
-
-        edcCheckBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                culturalCheckBox.setEnabled(false);
-                sportsCheckBox.setEnabled(false);
-                voiseCheckBox.setEnabled(false);
-            }
-        });
-
-        voiseCheckBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                culturalCheckBox.setEnabled(false);
-                edcCheckBox.setEnabled(false);
-                sportsCheckBox.setEnabled(false);
-            }
-        });*/
-
 
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,5 +91,7 @@ public class EventForm extends AppCompatActivity {
                 startActivity(home);
             }
         });
+
+
     }
 }

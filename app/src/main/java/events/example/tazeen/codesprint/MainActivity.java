@@ -29,16 +29,12 @@ public class MainActivity extends AppCompatActivity {
     public static final String ANONYMOUS = "anonymous";
     public static final int RC_SIGN_IN = 1;
     private static final String TAG = "MainActivity";
-    //private ProgressBar mProgressBar;
-
     private String mUsername;
+    private Toolbar mToolBar;
 
     private FirebaseDatabase mFirebaseDatabase;
-
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-
-    private Toolbar mToolBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +53,6 @@ public class MainActivity extends AppCompatActivity {
         edc = (Button) findViewById(R.id.edc);
         sports = (Button) findViewById(R.id.sports);
         cultural_activities = (Button) findViewById(R.id.c_activities);
-        //mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
-
-        //mProgressBar.setVisibility(ProgressBar.INVISIBLE);
 
         voise.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -8,14 +8,14 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/admin_email"
+        android:id="@+id/admin_username"
         android:layout_width="350sp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="150sp"
         android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:hint="@string/register_username"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/admin_password"

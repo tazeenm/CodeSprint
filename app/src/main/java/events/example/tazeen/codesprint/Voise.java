@@ -10,6 +10,7 @@ import android.widget.AdapterViewFlipper;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -62,6 +63,7 @@ public class Voise extends AppCompatActivity {
             public void onClick(View view) {
                 FirebaseMessaging.getInstance().subscribeToTopic("voise");
                 Log.d("Subscribe", "Vo'ISE");
+                Toast.makeText(Voise.this, "Subscribed to Vo'ISE", Toast.LENGTH_SHORT).show();
             }
         });
 
