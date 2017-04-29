@@ -1,15 +1,22 @@
 package events.example.tazeen.codesprint;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.AdapterViewFlipper;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TimePicker;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import events.com.example.tazeen.codesprint.R;
 
@@ -34,6 +42,12 @@ public class CulturalActivities extends AppCompatActivity {
 
     private AdapterViewFlipper simpleAdapterViewFlipper;
     int[] slideImages = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};     // array of images
+
+    AlarmManager alarmManager;
+    private PendingIntent pendingIntent;
+    private TimePicker alarmTimePicker;
+    private static CulturalActivities inst;
+    //private TextView alarmTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

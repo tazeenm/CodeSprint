@@ -41,6 +41,14 @@ public class Sports extends AppCompatActivity {
     private Button subscribeBtn;
     private Button unsubscribeBtn;
 
+    public Sports() {
+
+    }
+
+    public Sports (ArrayList<String> sports) {
+        this.sportsItems = sports;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +60,7 @@ public class Sports extends AppCompatActivity {
         sportsList.setAdapter(adapter1);
 
         simpleAdapterViewFlipper = (AdapterViewFlipper) findViewById(R.id.simpleAdapterViewFlipper);
-        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), /*fruitNames,*/ slideImages);
+        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), slideImages);
         simpleAdapterViewFlipper.setAdapter(customAdapter);
         simpleAdapterViewFlipper.setFlipInterval(3000);
         simpleAdapterViewFlipper.setAutoStart(true);
@@ -89,8 +97,8 @@ public class Sports extends AppCompatActivity {
 
             }
         });
-        dref.addChildEventListener(new ChildEventListener() {
 
+        dref.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 

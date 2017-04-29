@@ -4,27 +4,25 @@
     package="events.com.example.tazeen.codesprint">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl">
-
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/ic_stat_ic_notification" />
-
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
-
 
         <activity android:name="events.example.tazeen.codesprint.MainActivity">
             <intent-filter>
@@ -48,24 +46,21 @@
         <activity android:name="events.example.tazeen.codesprint.AdminLogin" />
         <activity android:name="events.example.tazeen.codesprint.EventForm" />
 
-        <service
-            android:name="events.example.tazeen.codesprint.MyFirebaseMessagingService">
+        <service android:name="events.example.tazeen.codesprint.MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.example.tazeen.codesprint.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.example.tazeen.codesprint.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
-        <service
-            android:name="events.example.tazeen.codesprint.MyFirebaseInstanceIDService">
+        <service android:name="events.example.tazeen.codesprint.MyFirebaseInstanceIDService">
             <intent-filter>
-                <action android:name="com.example.tazeen.codesprint.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.example.tazeen.codesprint.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-
-        <service android:name="events.example.tazeen.codesprint.MyJobService"
+        <service
+            android:name="events.example.tazeen.codesprint.MyJobService"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.example.tazeen.codesprint.firebase.jobdispatcher.ACTION_EXECUTE"/>
+                <action android:name="com.example.tazeen.codesprint.firebase.jobdispatcher.ACTION_EXECUTE" />
             </intent-filter>
         </service>
     </application>
