@@ -38,19 +38,6 @@ public class EventForm extends AppCompatActivity {
     FirebaseDatabase fbdatabase;
 
     @Override
-    protected void onSaveInstanceState(Bundle savedInstanceState) {
-        savedInstanceState.putString(eventState, eventEditText.getText().toString());
-        super.onSaveInstanceState(savedInstanceState);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        eventEditText.setText(savedInstanceState.getString(eventState));
-        super.onRestoreInstanceState(savedInstanceState);
-
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_form);
@@ -92,6 +79,19 @@ public class EventForm extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putString(eventState, eventEditText.getText().toString());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        eventEditText.setText(savedInstanceState.getString(eventState));
+        super.onRestoreInstanceState(savedInstanceState);
 
     }
 }
