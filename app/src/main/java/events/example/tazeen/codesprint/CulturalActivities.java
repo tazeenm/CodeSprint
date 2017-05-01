@@ -41,7 +41,8 @@ public class CulturalActivities extends AppCompatActivity {
     private Button unsubscribeBtn1;
 
     private AdapterViewFlipper simpleAdapterViewFlipper;
-    int[] slideImages = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};     // array of images
+    //int[] slideImages = {R.drawable.c2, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};     // array of images
+    int[] slideImages = {R.drawable.pic1, R.drawable.c2};
 
     AlarmManager alarmManager;
     private PendingIntent pendingIntent;
@@ -53,7 +54,7 @@ public class CulturalActivities extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cultural_activities);
-        ToolBar3 = (Toolbar) findViewById(R.id.toolbar4);
+        //ToolBar3 = (Toolbar) findViewById(R.id.toolbar4);
         culturalList = (ListView) findViewById(R.id.cultural_list);
         adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, culturalItems);
         culturalList.setAdapter(adapter2);

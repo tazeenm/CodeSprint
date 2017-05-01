@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CodeSprint</string>
+    <string name="app_name">MSRIT Events</string>
 
     <string name="login_email">Email</string>
     <string name="login_password">Password</string>
@@ -20,5 +20,12 @@
     <string name="toolbar_sign_out">Sign-Out</string>
     <string name="title_activity_admin_login">Sign in</string>
     <string name="msg_subscribed" />
+
+    <string name="unsubscribe">Unsubscribe</string>
+    <string name="subscribe">Subscribe</string>
+
+    <string name="category">Choose a Category</string>
+    <string name="submit">Submit</string>
+    <string name="add_event">Add Event with Date and Time</string>
 
 </resources>

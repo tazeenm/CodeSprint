@@ -11,15 +11,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="events.example.tazeen.codesprint.Sports">
 
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/com_facebook_button_background_color_selected"
-        android:theme="?attr/actionBarTheme"
-        android:layout_alignParentTop="true"
-        android:id="@+id/toolbar3"
-        app:title="Sports" />
-
     <AdapterViewFlipper
         android:id="@+id/simpleAdapterViewFlipper"
         android:layout_width="match_parent"
@@ -29,28 +20,29 @@
         android:id="@+id/sports_list"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_below="@+id/simpleAdapterViewFlipper" />
+        android:layout_below="@+id/simpleAdapterViewFlipper"
+        android:background="@drawable/edcback"/>
 
     <Button
         android:id="@+id/subscribe_sports"
         android:layout_width="wrap_content"
         android:layout_height="40sp"
-        android:text="Subscribe"
-        android:layout_below="@+id/sports_list"
+        android:text="@string/subscribe"
+        android:layout_marginLeft="46dp"
+        android:layout_marginStart="46dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="66dp"
-        android:layout_marginStart="66dp" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/unsubscribe_sports"
         android:layout_width="wrap_content"
         android:layout_height="40sp"
-        android:layout_below="@+id/sports_list"
-        android:layout_marginLeft="43dp"
-        android:layout_marginStart="43dp"
-        android:layout_toEndOf="@+id/subscribe_sports"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:text="@string/unsubscribe"
+        android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/subscribe_sports"
-        android:text="Unsubscribe" />
+        android:layout_toEndOf="@+id/subscribe_sports" />
 
 </RelativeLayout>

@@ -37,14 +37,14 @@ public class Voise extends AppCompatActivity {
     private Button unsubscribeBtn3;
 
     private AdapterViewFlipper simpleAdapterViewFlipper;
-    int[] slideImages = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};     // array of images
-
+    //int[] slideImages = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};     // array of images
+    int[] slideImages = {R.drawable.pic1, R.drawable.pic2};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voise);
 
-        mToolBar = (Toolbar) findViewById(R.id.toolbar2);
+        //mToolBar = (Toolbar) findViewById(R.id.toolbar2);
         voiseList = (ListView) findViewById(R.id.voise_list);
         adapter4 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, voiseItems);
         voiseList.setAdapter(adapter4);

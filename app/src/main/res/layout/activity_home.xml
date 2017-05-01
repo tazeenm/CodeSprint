@@ -9,17 +9,63 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/homeback"
     tools:context="events.example.tazeen.codesprint.MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar"
-        android:background="@color/com_facebook_button_background_color_selected"
+        android:layout_gravity="center"
         app:title="Home" />
 
     <Button
+        android:id="@+id/voise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/edc"
+        android:layout_alignStart="@+id/edc"
+        android:layout_below="@+id/edc"
+        android:layout_marginTop="34dp"
+        android:backgroundTint="?android:attr/panelBackground"
+        android:text="@string/voise"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/sports"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/c_activities"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="33dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:backgroundTint="?android:attr/panelBackground"
+        android:text="@string/sports" />
+
+    <Button
+        android:id="@+id/edc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/c_activities"
+        android:layout_alignStart="@+id/c_activities"
+        android:layout_below="@+id/c_activities"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="?android:attr/panelBackground"
+        android:text="@string/edc" />
+
+    <Button
+        android:id="@+id/c_activities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/sports"
+        android:layout_alignStart="@+id/sports"
+        android:layout_centerVertical="true"
+        android:backgroundTint="?android:attr/panelBackground"
+        android:text="@string/c_activities" />
+
+    <!--<Button
         android:id="@+id/voise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,7 +101,7 @@
         android:layout_marginTop="15dp"
         android:text="@string/c_activities"
         android:layout_below="@+id/sports"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true" />-->
     <!--android:layout_below="@+id/edc"
     android:layout_alignLeft="@+id/edc"
     android:layout_alignStart="@+id/edc" />-->

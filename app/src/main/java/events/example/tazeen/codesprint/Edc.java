@@ -27,8 +27,8 @@ public class Edc extends AppCompatActivity {
 
     private Toolbar ToolBar1;
     private AdapterViewFlipper simpleAdapterViewFlipper;
-    int[] slideImages = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};     // array of images
-
+    //int[] slideImages = {R.drawable.e1, R.drawable.e2, R.drawable.e3, R.drawable.e4, R.drawable.e5};     // array of images
+    int[] slideImages = {R.drawable.pic1, R.drawable.pic2};
     DatabaseReference dref;
     ArrayList<String> edcItems = new ArrayList<>();
     ArrayAdapter<String> adapter3;
@@ -40,7 +40,7 @@ public class Edc extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edc);
-        ToolBar1 = (Toolbar) findViewById(R.id.toolbar5);
+        //ToolBar1 = (Toolbar) findViewById(R.id.toolbar5);
 
         edcList = (ListView) findViewById(R.id.edc_list);
         adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, edcItems);

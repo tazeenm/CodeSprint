@@ -12,18 +12,6 @@
     tools:context="events.example.tazeen.codesprint.CulturalActivities">
 
 
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/com_facebook_button_background_color_selected"
-        android:theme="?attr/actionBarTheme"
-        android:minHeight="?attr/actionBarSize"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/toolbar4"
-        app:title="Cultural Activities" />
-
-
     <AdapterViewFlipper
         android:id="@+id/simpleAdapterViewFlipper"
         android:layout_width="match_parent"
@@ -33,13 +21,14 @@
         android:id="@+id/cultural_list"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_marginTop="200dp" />
+        android:layout_marginTop="200dp"
+        android:background="@drawable/edcback"/>
 
     <Button
         android:id="@+id/subscribe_cultural_activities"
         android:layout_width="wrap_content"
         android:layout_height="40sp"
-        android:text="Subscribe"
+        android:text="@string/subscribe"
         android:layout_marginLeft="42dp"
         android:layout_marginStart="42dp"
         android:layout_below="@+id/cultural_list"
@@ -52,7 +41,7 @@
         android:layout_height="40sp"
         android:layout_marginEnd="33dp"
         android:layout_marginRight="33dp"
-        android:text="Unsubscribe"
+        android:text="@string/unsubscribe"
         android:layout_below="@+id/cultural_list"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />

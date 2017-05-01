@@ -19,19 +19,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import events.com.example.tazeen.codesprint.R;
 
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.messaging.FirebaseMessaging;
 
 public class Sports extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    int[] slideImages = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};     // array of images
+    //int[] slideImages = {R.drawable.s1, R.drawable.s2, R.drawable.s3, R.drawable.s4, R.drawable.s5};
+    int[] slideImages = {R.drawable.pic1, R.drawable.pic2}; // array of images
     ListView sportsList;
     DatabaseReference dref;
     ArrayList<String> sportsItems = new ArrayList<>();
@@ -54,7 +51,7 @@ public class Sports extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sports);
 
-        ToolBar1 = (Toolbar) findViewById(R.id.toolbar3);
+       //ToolBar1 = (Toolbar) findViewById(R.id.toolbar3);
         sportsList = (ListView) findViewById(R.id.sports_list);
         adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, sportsItems);
         sportsList.setAdapter(adapter1);
