@@ -28,7 +28,7 @@ public class Sports extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     //int[] slideImages = {R.drawable.s1, R.drawable.s2, R.drawable.s3, R.drawable.s4, R.drawable.s5};
-    int[] slideImages = {R.drawable.pic1, R.drawable.pic2}; // array of images
+    int[] slideImages = {R.drawable.s1, R.drawable.s2}; // array of images
     ListView sportsList;
     DatabaseReference dref;
     ArrayList<String> sportsItems = new ArrayList<>();

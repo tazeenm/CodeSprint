@@ -28,7 +28,7 @@ public class Edc extends AppCompatActivity {
     private Toolbar ToolBar1;
     private AdapterViewFlipper simpleAdapterViewFlipper;
     //int[] slideImages = {R.drawable.e1, R.drawable.e2, R.drawable.e3, R.drawable.e4, R.drawable.e5};     // array of images
-    int[] slideImages = {R.drawable.pic1, R.drawable.pic2};
+    int[] slideImages = {R.drawable.pic1, R.drawable.e2};
     DatabaseReference dref;
     ArrayList<String> edcItems = new ArrayList<>();
     ArrayAdapter<String> adapter3;
