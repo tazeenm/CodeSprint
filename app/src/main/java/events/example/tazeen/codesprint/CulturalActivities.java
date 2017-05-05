@@ -42,7 +42,7 @@ public class CulturalActivities extends AppCompatActivity {
 
     private AdapterViewFlipper simpleAdapterViewFlipper;
     //int[] slideImages = {R.drawable.c2, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};     // array of images
-    int[] slideImages = {R.drawable.pic1, R.drawable.c2};
+    int[] slideImages = {R.drawable.c1, R.drawable.c2};
 
     AlarmManager alarmManager;
     private PendingIntent pendingIntent;
