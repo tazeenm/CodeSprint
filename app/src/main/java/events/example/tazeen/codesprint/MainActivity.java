@@ -1,8 +1,13 @@
 package events.example.tazeen.codesprint;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -10,12 +15,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import events.com.example.tazeen.codesprint.R;
 
@@ -35,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
+    private DatabaseReference dref1, dref2, dref3, dref4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +118,136 @@ public class MainActivity extends AppCompatActivity {
                     }
             }
         };
+
+        dref1 = FirebaseDatabase.getInstance().getReference().child("sports");
+        dref1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                final int mId = 1234;
+                NotificationCompat.Builder mBuilder =
+                        new NotificationCompat.Builder(MainActivity.this)
+                                .setSmallIcon(R.drawable.events)
+                                .setContentTitle("Sports")
+                                .setContentText("A new Event has been added. Click here to check it out!");
+
+                Intent resultIntent = new Intent(MainActivity.this, Sports.class);
+                TaskStackBuilder stackBuilder = TaskStackBuilder.create(MainActivity.this);
+                stackBuilder.addParentStack(Sports.class);
+                stackBuilder.addNextIntent(resultIntent);
+                PendingIntent resultPendingIntent =
+                        stackBuilder.getPendingIntent(
+                                0,
+                                PendingIntent.FLAG_UPDATE_CURRENT
+                        );
+                mBuilder.setContentIntent(resultPendingIntent);
+                NotificationManager mNotificationManager =
+                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                mNotificationManager.notify(mId, mBuilder.build());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+        dref2 = FirebaseDatabase.getInstance().getReference().child("culturalActivities");
+        dref2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                final int mId = 1234;
+                NotificationCompat.Builder mBuilder =
+                        new NotificationCompat.Builder(MainActivity.this)
+                                .setSmallIcon(R.drawable.events)
+                                .setContentTitle("Cultural Activities")
+                                .setContentText("A new Event has been added. Click here to check it out!");
+
+                Intent resultIntent = new Intent(MainActivity.this, CulturalActivities.class);
+                TaskStackBuilder stackBuilder = TaskStackBuilder.create(MainActivity.this);
+                stackBuilder.addParentStack(CulturalActivities.class);
+                stackBuilder.addNextIntent(resultIntent);
+                PendingIntent resultPendingIntent =
+                        stackBuilder.getPendingIntent(
+                                0,
+                                PendingIntent.FLAG_UPDATE_CURRENT
+                        );
+                mBuilder.setContentIntent(resultPendingIntent);
+                NotificationManager mNotificationManager =
+                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                mNotificationManager.notify(mId, mBuilder.build());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        dref3 = FirebaseDatabase.getInstance().getReference().child("edc");
+        dref3.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                final int mId = 1234;
+                NotificationCompat.Builder mBuilder =
+                        new NotificationCompat.Builder(MainActivity.this)
+                                .setSmallIcon(R.drawable.events)
+                                .setContentTitle("Entrepreneurship Development Cell")
+                                .setContentText("A new Event has been added. Click here to check it out!");
+
+                Intent resultIntent = new Intent(MainActivity.this, Edc.class);
+                TaskStackBuilder stackBuilder = TaskStackBuilder.create(MainActivity.this);
+                stackBuilder.addParentStack(Edc.class);
+                stackBuilder.addNextIntent(resultIntent);
+                PendingIntent resultPendingIntent =
+                        stackBuilder.getPendingIntent(
+                                0,
+                                PendingIntent.FLAG_UPDATE_CURRENT
+                        );
+                mBuilder.setContentIntent(resultPendingIntent);
+                NotificationManager mNotificationManager =
+                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                mNotificationManager.notify(mId, mBuilder.build());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        dref4 = FirebaseDatabase.getInstance().getReference().child("voise");
+        dref4.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                final int mId = 1234;
+                NotificationCompat.Builder mBuilder =
+                        new NotificationCompat.Builder(MainActivity.this)
+                                .setSmallIcon(R.drawable.events)
+                                .setContentTitle("Vo'ISE")
+                                .setContentText("A new Event has been added. Click here to check it out!");
+
+                Intent resultIntent = new Intent(MainActivity.this, Voise.class);
+                TaskStackBuilder stackBuilder = TaskStackBuilder.create(MainActivity.this);
+                stackBuilder.addParentStack(Voise.class);
+                stackBuilder.addNextIntent(resultIntent);
+                PendingIntent resultPendingIntent =
+                        stackBuilder.getPendingIntent(
+                                0,
+                                PendingIntent.FLAG_UPDATE_CURRENT
+                        );
+                mBuilder.setContentIntent(resultPendingIntent);
+                NotificationManager mNotificationManager =
+                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                mNotificationManager.notify(mId, mBuilder.build());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
 
