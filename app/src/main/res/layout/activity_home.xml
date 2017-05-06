@@ -29,6 +29,8 @@
         android:layout_marginTop="34dp"
         android:backgroundTint="?android:attr/panelBackground"
         android:text="@string/voise"
+        android:textSize="16sp"
+        android:textStyle="bold"
         android:visibility="visible" />
 
     <Button
@@ -42,7 +44,9 @@
         android:layout_marginLeft="12dp"
         android:layout_marginStart="12dp"
         android:backgroundTint="?android:attr/panelBackground"
-        android:text="@string/sports" />
+        android:text="@string/sports"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/edc"
@@ -53,7 +57,9 @@
         android:layout_below="@+id/c_activities"
         android:layout_marginTop="25dp"
         android:backgroundTint="?android:attr/panelBackground"
-        android:text="@string/edc" />
+        android:text="@string/edc"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/c_activities"
@@ -63,7 +69,9 @@
         android:layout_alignStart="@+id/sports"
         android:layout_centerVertical="true"
         android:backgroundTint="?android:attr/panelBackground"
-        android:text="@string/c_activities" />
+        android:text="@string/c_activities"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <!--<Button
         android:id="@+id/voise"

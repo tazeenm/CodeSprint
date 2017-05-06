@@ -5,6 +5,7 @@
     android:id="@+id/activity_cultural_activities"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backg"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -15,35 +16,36 @@
     <AdapterViewFlipper
         android:id="@+id/simpleAdapterViewFlipper"
         android:layout_width="match_parent"
-        android:layout_height="200dp"></AdapterViewFlipper>
+        android:layout_height="200sp"
+        android:background="@drawable/backg"></AdapterViewFlipper>
 
     <ListView
         android:id="@+id/cultural_list"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="300sp"
         android:layout_marginTop="200dp"
-        android:background="@drawable/edcback"/>
+        android:background="@drawable/edcback" />
 
     <Button
         android:id="@+id/subscribe_cultural_activities"
         android:layout_width="wrap_content"
         android:layout_height="40sp"
-        android:text="@string/subscribe"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/cultural_list"
         android:layout_marginLeft="42dp"
         android:layout_marginStart="42dp"
-        android:layout_below="@+id/cultural_list"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:text="@string/subscribe" />
 
     <Button
         android:id="@+id/unsubscribe_cultural_activities"
         android:layout_width="wrap_content"
         android:layout_height="40sp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/cultural_list"
         android:layout_marginEnd="33dp"
         android:layout_marginRight="33dp"
-        android:text="@string/unsubscribe"
-        android:layout_below="@+id/cultural_list"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:text="@string/unsubscribe" />
 
 </RelativeLayout>
