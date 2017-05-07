@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        dref1 = FirebaseDatabase.getInstance().getReference().child("sports");
+        /*dref1 = FirebaseDatabase.getInstance().getReference().child("sports");
         dref1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -150,8 +150,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
 
         dref2 = FirebaseDatabase.getInstance().getReference().child("culturalActivities");
         dref2.addValueEventListener(new ValueEventListener() {
@@ -247,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });
+        });*/
     }
 
 

@@ -45,7 +45,7 @@ public class Voise extends AppCompatActivity {
 
     private AdapterViewFlipper simpleAdapterViewFlipper;
     //int[] slideImages = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};     // array of images
-    int[] slideImages = {R.drawable.pic1, R.drawable.pic2};
+    int[] slideImages = {R.drawable.v1, R.drawable.v2};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

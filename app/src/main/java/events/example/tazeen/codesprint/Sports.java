@@ -44,14 +44,6 @@ public class Sports extends AppCompatActivity {
     private Button subscribeBtn;
     private Button unsubscribeBtn;
 
-    public Sports() {
-
-    }
-
-    public Sports (ArrayList<String> sports) {
-        this.sportsItems = sports;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
