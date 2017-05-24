@@ -1,6 +1,8 @@
 package events.example.tazeen.codesprint;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -80,6 +82,18 @@ public class EventForm extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        backButtonHandler();
+        return;
+    }
+
+    private void backButtonHandler() {
+
+        Intent intent = new Intent(EventForm.this, MainActivity.class);
+        startActivity(intent);
     }
 
     @Override
