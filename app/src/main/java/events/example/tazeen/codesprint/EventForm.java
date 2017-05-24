@@ -29,7 +29,7 @@ public class EventForm extends AppCompatActivity {
     public CheckBox edcCheckBox;
     public CheckBox voiseCheckBox;
 
-    private TextView categoryTextView;
+    public TextView categoryTextView;
     public EditText eventEditText;
     private Button submitBtn;
     //private String event;
@@ -52,7 +52,7 @@ public class EventForm extends AppCompatActivity {
         categoryTextView = (TextView) findViewById(R.id.category_textView);
         eventEditText = (EditText) findViewById(R.id.event_editText);
         submitBtn = (Button) findViewById(R.id.event_submit_btn);
-
+        //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         fbdatabase = FirebaseDatabase.getInstance();
 
         submitBtn.setOnClickListener(new View.OnClickListener() {

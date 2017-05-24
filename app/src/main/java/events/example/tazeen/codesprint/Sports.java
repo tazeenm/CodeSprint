@@ -22,6 +22,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.OnDisconnect;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 
@@ -39,7 +40,7 @@ public class Sports extends AppCompatActivity {
     DatabaseReference dref;
     ArrayList<String> sportsItems = new ArrayList<>();
     ArrayAdapter<String> adapter1;
-    private Toolbar ToolBar1;
+    //private Toolbar ToolBar1;
     private AdapterViewFlipper simpleAdapterViewFlipper;
     private Button subscribeBtn;
     private Button unsubscribeBtn;
@@ -81,6 +82,9 @@ public class Sports extends AppCompatActivity {
         });
 
         dref = FirebaseDatabase.getInstance().getReference().child("sports");
+        dref.keepSynced(true);
+        /*dref.onDisconnect().setValue("Disconnected!");*/
+
         dref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -92,6 +96,8 @@ public class Sports extends AppCompatActivity {
 
             }
         });
+        /*OnDisconnect onDisconnectRef = dref.onDisconnect();
+        onDisconnectRef.cancel();*/
 
         dref.addChildEventListener(new ChildEventListener() {
             @Override
@@ -128,5 +134,17 @@ public class Sports extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        backButtonHandler();
+        return;
+    }
+
+    private void backButtonHandler() {
+
+        Intent intent = new Intent(Sports.this, MainActivity.class);
+        startActivity(intent);
     }
 }

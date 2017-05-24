@@ -87,6 +87,7 @@ public class CulturalActivities extends AppCompatActivity {
         });
 
         dref = FirebaseDatabase.getInstance().getReference().child("culturalActivities");
+        dref.keepSynced(true);
         dref.addChildEventListener(new ChildEventListener() {
 
             @Override
@@ -121,5 +122,17 @@ public class CulturalActivities extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        backButtonHandler();
+        return;
+    }
+
+    private void backButtonHandler() {
+
+        Intent intent = new Intent(CulturalActivities.this, MainActivity.class);
+        startActivity(intent);
     }
 }

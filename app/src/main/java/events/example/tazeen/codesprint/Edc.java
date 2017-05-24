@@ -81,6 +81,7 @@ public class Edc extends AppCompatActivity {
         });
 
         dref = FirebaseDatabase.getInstance().getReference().child("edc");
+        dref.keepSynced(true);
         dref.addChildEventListener(new ChildEventListener() {
 
             @Override
@@ -115,5 +116,17 @@ public class Edc extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        backButtonHandler();
+        return;
+    }
+
+    private void backButtonHandler() {
+
+        Intent intent = new Intent(Edc.this, MainActivity.class);
+        startActivity(intent);
     }
 }

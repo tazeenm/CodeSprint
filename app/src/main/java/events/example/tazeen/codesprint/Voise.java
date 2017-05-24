@@ -83,6 +83,7 @@ public class Voise extends AppCompatActivity {
         });
 
         dref = FirebaseDatabase.getInstance().getReference().child("voise");
+        dref.keepSynced(true);
         dref.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -116,5 +117,17 @@ public class Voise extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        backButtonHandler();
+        return;
+    }
+
+    private void backButtonHandler() {
+
+        Intent intent = new Intent(Voise.this, MainActivity.class);
+        startActivity(intent);
     }
 }
